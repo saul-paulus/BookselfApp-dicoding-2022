@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
         seacrh_book();
     })
 
+    if (is_storage_exist()) {
+        load_data_from_storage();
+    }
+
 })
 
 const RENDER_BOOK = 'render-book';
+const SAVE_EVENT = 'save-books';
+const STORAGE_KEY = 'BOOKSELF_APP';
 const to_book = [];
 const found__book = [];
 
@@ -82,6 +88,7 @@ function handler_complete_to_read(book_id) {
 
     book_target.isComplete = false;
     document.dispatchEvent(new Event(RENDER_BOOK));
+    save_data();
 }
 
 function handler_incomplete_to_read(book_id) {
@@ -91,6 +98,7 @@ function handler_incomplete_to_read(book_id) {
 
     book_target.isComplete = true;
     document.dispatchEvent(new Event(RENDER_BOOK));
+    save_data();
 }
 
 function handler_remove_book(book_id) {
@@ -100,6 +108,7 @@ function handler_remove_book(book_id) {
 
     to_book.splice(book_target, 1);
     document.dispatchEvent(new Event(RENDER_BOOK));
+    save_data();
 }
 
 function find_to_index(book_id) {
@@ -195,6 +204,8 @@ function add_book() {
     to_book.push(books)
 
     document.dispatchEvent(new Event(RENDER_BOOK));
+
+    save_data();
 }
 
 
@@ -208,6 +219,8 @@ function seacrh_book() {
     }
 
     document.dispatchEvent(new Event(RENDER_BOOK));
+
+    save_data();
 }
 
 function find_title_book(title_book) {
@@ -224,3 +237,38 @@ function reset_form_search() {
     document.getElementById('searchBookTitle').value = '';
     return;
 }
+
+
+
+function save_data() {
+    if (is_storage_exist()) {
+        const parsed = JSON.stringify(to_book);
+        localStorage.setItem(STORAGE_KEY, parsed);
+        document.dispatchEvent(new Event(SAVE_EVENT));
+    }
+}
+
+function is_storage_exist() {
+    if (typeof(Storage) === undefined) {
+        alert('Browser kamu tidak mendukung local storage');
+        return false;
+    }
+    return true;
+}
+
+function load_data_from_storage() {
+    const serialize_data = localStorage.getItem(STORAGE_KEY);
+    let data_obj = JSON.parse(serialize_data);
+
+    if (data_obj !== null) {
+        for (const books of data_obj) {
+            to_book.push(books);
+        }
+    }
+    document.dispatchEvent(new Event(RENDER_BOOK));
+}
+
+
+document.addEventListener(SAVE_EVENT, function() {
+    console.log(localStorage.getItem(STORAGE_KEY));
+})
