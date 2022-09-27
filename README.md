@@ -40,6 +40,5 @@ Data buku yang ditampilkan pada rak, baik itu "Belum selesai dibaca" maupun "Sel
 Dengan begitu, Anda harus menyimpan data buku pada localStorage.
 
 
-![Screenshot from 2022-09-27 22-31-27](https://user-images.githubusercontent.com/55346618/192540226-33d10aef-ec98-402b-8050-5e49c64e4935.png)
-
+![image](https://user-images.githubusercontent.com/55346618/192542203-be403cd2-860e-4a22-a29a-fca7ecbda191.png)
 
