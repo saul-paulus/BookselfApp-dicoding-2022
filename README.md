@@ -38,3 +38,12 @@ Buku yang ditampilkan pada rak, baik itu "Belum selesai dibaca" maupun "Selesai 
 Kriteria 5: Manfaatkan localStorage dalam Menyimpan Data Buku
 Data buku yang ditampilkan pada rak, baik itu "Belum selesai dibaca" maupun "Selesai dibaca" harus dapat bertahan walaupun halaman web ditutup.
 Dengan begitu, Anda harus menyimpan data buku pada localStorage.
+
+Tampilan App akan seperti ini
+==============================
+
+[Uploading Screenshot from 2022-09-27 22-26-37.png-48:-56:85:73…]()
+
+
+
+
