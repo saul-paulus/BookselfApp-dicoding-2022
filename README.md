@@ -42,8 +42,6 @@ Dengan begitu, Anda harus menyimpan data buku pada localStorage.
 Tampilan App akan seperti ini
 ==============================
 
-[Uploading Screenshot from 2022-09-27 22-26-37.png-48:-56:85:73…]()
-
-
+ file:///home/ixspx/Pictures/Screenshots/Screenshot%20from%202022-09-27%2022-26-37.png
 
 
