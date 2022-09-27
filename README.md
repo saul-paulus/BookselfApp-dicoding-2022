@@ -42,3 +42,4 @@ Dengan begitu, Anda harus menyimpan data buku pada localStorage.
 
 ![image](https://user-images.githubusercontent.com/55346618/192542203-be403cd2-860e-4a22-a29a-fca7ecbda191.png)
 
+Demo App: https://melodious-travesseiro-ec815f.netlify.app
