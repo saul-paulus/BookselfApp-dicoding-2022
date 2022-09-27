@@ -8,28 +8,29 @@
     <title>Bookshelf Apps</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
     <header class="head_bar">
-        <h1 class="head_bar__title">Bookshelf Apps</h1>
+        <h1 class="head_bar__title" id="title-bar">Bookshelf Apps</h1>
     </header>
     <main>
         <section class="input_section">
-            <h2>Masukkan Buku Baru</h2>
+            <h2 id="title_form">Masukkan Buku Baru</h2>
             <form id="inputBook">
                 <div class="input">
-                    <label for="inputBookTitle">Judul</label>
-                    <input id="inputBookTitle" type="text" required>
+                    <!-- <label for="inputBookTitle">Judul</label> -->
+                    <input id="inputBookTitle" type="text" required placeholder="Judul Buku">
                 </div>
                 <div class="input">
-                    <label for="inputBookAuthor">Penulis</label>
-                    <input id="inputBookAuthor" type="text" required>
+                    <!-- <label for="inputBookAuthor">Penulis</label> -->
+                    <input id="inputBookAuthor" type="text" required placeholder="Penulis Buku ">
                 </div>
                 <div class="input">
-                    <label for="inputBookYear">Tahun</label>
-                    <input id="inputBookYear" type="number" required>
+                    <!-- <label for="inputBookYear">Tahun</label> -->
+                    <input id="inputBookYear" type="number" required placeholder="Tahun Terbit Buku">
                 </div>
                 <div class="input_inline">
                     <label for="inputBookIsComplete">Selesai dibaca</label>
@@ -44,7 +45,7 @@
             <form id="searchBook">
                 <label for="searchBookTitle">Judul</label>
                 <input id="searchBookTitle" type="text">
-                <button id="searchSubmit" type="submit">Cari</button>
+                <button id="searchSubmit" type="submit"><i class="uil uil-search"></i></button>
             </form>
         </section>
 
@@ -81,7 +82,7 @@
         </section>
     </main>
 
-    <script src="js.js"></script>
+    <script src="./assets/js.js"></script>
 
 </body>
 

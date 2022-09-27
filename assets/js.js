@@ -1,8 +1,8 @@
 const input_book = document.getElementById('inputBook');
 const search_books = document.getElementById('searchBook');
+const title_bar = document.getElementById('title_form');
 
 document.addEventListener('DOMContentLoaded', function() {
-
     input_book.addEventListener('submit', (event) => {
         event.preventDefault();
         add_book();
@@ -121,7 +121,6 @@ function find_to_index(book_id) {
     return -1;
 }
 
-// refactor code
 function make_card_book({ id, title, author, year, isComplete }) {
 
     const title_element = document.createElement('h3');
@@ -138,7 +137,7 @@ function make_card_book({ id, title, author, year, isComplete }) {
 
     const btn_red = document.createElement('button');
     btn_red.classList.add('red');
-    btn_red.innerText = "Hapus Buku";
+    btn_red.innerHTML = `<i class="uil uil-trash-alt"></i>`;
 
     btn_red.addEventListener('click', function() {
         const confirm_remove = confirm("Apakah anda akan menghapus buku ini?");
@@ -194,22 +193,29 @@ function reset_form_data() {
 }
 
 
+
 // Handler add book
 function add_book() {
+
     reset_form_search()
     const { title, author, year, isComplete } = input_form_data();
     const id = generate_id();
     const books = generate_book(id, title, author, year, isComplete);
     reset_form_data();
-    to_book.push(books)
+
+    if (to_book.push(books)) {
+        title_bar.innerText = "Buku berhasil disimpan";
+        title_bar.classList.add('sukses');
+    }
 
     document.dispatchEvent(new Event(RENDER_BOOK));
 
     save_data();
 }
 
-
+// Hadler search book
 function seacrh_book() {
+
     const key_book = document.getElementById('searchBookTitle').value.toLowerCase();
     const book = find_title_book(key_book);
     if (book == -1) {
@@ -238,8 +244,6 @@ function reset_form_search() {
     return;
 }
 
-
-
 function save_data() {
     if (is_storage_exist()) {
         const parsed = JSON.stringify(to_book);
@@ -267,8 +271,3 @@ function load_data_from_storage() {
     }
     document.dispatchEvent(new Event(RENDER_BOOK));
 }
-
-
-document.addEventListener(SAVE_EVENT, function() {
-    console.log(localStorage.getItem(STORAGE_KEY));
-})
