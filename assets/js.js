@@ -155,14 +155,14 @@ function make_card_book({ id, title, author, year, isComplete }) {
     article_element.append(title_element, author_element, year_element, div_element);
 
     if (isComplete) {
-        btn_green.innerText = "Belum selesai dibaca";
+        btn_green.innerHTML = `<i class="uil uil-book-alt"></i>`;
 
         btn_green.addEventListener('click', function() {
             handler_complete_to_read(id);
         })
 
     } else {
-        btn_green.innerText = "Selesai dibaca";
+        btn_green.innerHTML = `<i class="uil uil-book-open"></i>`;
 
         btn_green.addEventListener('click', function() {
             handler_incomplete_to_read(id);

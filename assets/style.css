@@ -105,8 +105,8 @@ main {
     padding: 16px;
     width: 100%;
     display: grid;
-    grid-template-columns: auto 1fr 0.5fr;
-    grid-gap: 10px;
+    grid-template-columns: 1fr 0.5fr;
+    column-gap: 10px;
 }
 
 .search_section>form>label {
@@ -168,7 +168,7 @@ p {
 }
 
 .book_shelf>.book_list>.book_item>.action>.green {
-    padding: 10px;
+    padding: 7px 24px;
     background-color: rgb(21, 165, 21);
     color: white;
     transition: .3s;
@@ -180,7 +180,7 @@ p {
 }
 
 .book_shelf>.book_list>.book_item>.action>.red {
-    padding: 10px;
+    padding: 7px 24px;
     background-color: rgb(185, 45, 45);
     color: white;
     transition: .3s;
@@ -193,4 +193,8 @@ p {
 
 .sukses {
     color: rgb(21, 165, 21) !important;
+}
+
+i {
+    font-size: 1rem;
 }
