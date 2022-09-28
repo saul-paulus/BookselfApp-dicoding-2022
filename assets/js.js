@@ -216,12 +216,14 @@ function add_book() {
 // Hadler search book
 function seacrh_book() {
 
-    const key_book = document.getElementById('searchBookTitle').value.toLowerCase();
+    const key_book = document.getElementById('searchBookTitle').value
     const book = find_title_book(key_book);
-    if (book == -1) {
+    if (book == -1 || found__book.length > 1) {
         found__book.splice(0, found__book.length);
+    } else if (found__book.length == 1) {
+        return false;
     } else {
-        found__book.unshift(book);
+        found__book.push(book);
     }
 
     document.dispatchEvent(new Event(RENDER_BOOK));
